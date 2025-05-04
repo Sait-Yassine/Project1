@@ -32,7 +32,7 @@ export default function Navbar() {
         {loggedIn ? (
           <>
             <Link
-              href="/platform/dashboard"
+              href="/platform"
               className="text-gray-700 hover:text-black font-medium px-4 py-2"
             >
               Dashboard

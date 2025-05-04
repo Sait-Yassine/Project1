@@ -3,8 +3,8 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
 import { getToken } from "@/lib/auth";
+import Navbar from "./components/Navbar";
 
 export default function PlatformLayout({
   children,

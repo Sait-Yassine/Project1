@@ -27,7 +27,7 @@ export default function LoginModal() {
         JSON.stringify({ email, roles })
       );
       // redirect to dashboard
-      router.push("/platform");
+      router.replace("/platform");
     } catch {
       setError("Invalid email/password combination");
     }

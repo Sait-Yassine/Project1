@@ -11,3 +11,36 @@ body {
   @apply bg-white text-gray-800;
   font-family: 'Inter', sans-serif;
 }
+
+@layer components {
+  /* reusable nav-link with underline animation */
+  .nav-item {
+    @apply relative flex items-center space-x-1
+           text-gray-700 font-medium
+           transition-colors duration-200
+           hover:text-black;
+  }
+  .nav-item::after {
+    @apply content-[''] absolute bottom-0 left-0
+           w-0 h-[2px] bg-current
+           transition-all duration-300;
+  }
+  .nav-item:hover::after {
+    @apply w-full;
+  }
+
+  /* optional “pop” scale effect on hover */
+  .nav-pop {
+    @apply transform transition-transform duration-200
+           hover:scale-105;
+  }
+
+    /* highlight the active nav-item */
+    .nav-item.active {
+      @apply text-black;
+    }
+    .nav-item.active::after {
+      @apply w-full;
+    }
+
+}
