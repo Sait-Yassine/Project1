@@ -32,19 +32,18 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // disable CSRF since we’re using stateless JWTs
+                // disable CSRF since we're using stateless JWTs
                 .csrf(csrf -> csrf.disable())
 
                 // enable CORS (uses the corsConfigurationSource() bean below)
                 .cors(Customizer.withDefaults())
 
-                // add our JWT validation filter before Spring’s auth filter
+                // add our JWT validation filter before Spring's auth filter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
 
                 // public vs protected endpoints
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/ping", "/api/auth/**").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
 
                 // disable default login mechanisms
